@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Square.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Square" type="Polygon2D" parent="."]
+position = Vector2( 208, -24 )
+color = Color( 0.133333, 0.0117647, 0.513726, 1 )
+polygon = PackedVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+rotation_speed = 3.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Square"]
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Square/RigidBody2D"]
+use_parent_material = true
+position = Vector2( 0, 1 )
+polygon = PackedVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+
+[node name="Square2" type="Polygon2D" parent="."]
+position = Vector2( 208, 88 )
+color = Color( 0.513726, 0.0117647, 0.188235, 1 )
+polygon = PackedVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+rotation_speed = 2.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Square2"]
+physics_material_override = SubResource( 2 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Square2/RigidBody2D"]
+use_parent_material = true
+polygon = PackedVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
